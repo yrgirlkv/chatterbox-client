@@ -13,10 +13,16 @@ var MessagesView = {
 
   render: function() {
     // TODO: Render _all_ the messages.
+    for (let message of messages._data) {
+      this.renderMessage(message);
+
+    }
   },
 
   renderMessage: function(message) {
     // TODO: Render a single message.
+    console.log(MessageView.render(message));
+    this.$chats.append(MessageView.render(message));
   },
 
   handleClick: function(event) {

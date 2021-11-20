@@ -12,6 +12,8 @@ var Rooms = {
   addNewRoom: function(roomName) {
     // $('#add-room').on('click', function() {});
     //add rooms to room data
+    this._data.push(roomName);
+    this.selectRoom(roomName);
   },
 
   selectRoom: function(roomName) {
