@@ -13,10 +13,18 @@ var RoomsView = {
 
   render: function() {
     // TODO: Render out the list of rooms.
+    for (let room of Rooms._data) {
+      this.renderRoom(room);
+    }
   },
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
+
+    //let roomHTML = _.template('<option value= "room"><%= roomname %></option>');
+    let roomHTML = `<option value="${roomname}">${roomname}</option>`;
+    console.log(roomHTML);
+    this.$select.append(roomHTML);
   },
 
   handleChange: function(event) {

@@ -14,9 +14,11 @@ var Rooms = {
     //add rooms to room data
     this._data.push(roomName);
     this.selectRoom(roomName);
+
   },
 
   selectRoom: function(roomName) {
     //switch room display
+
   }
 };
