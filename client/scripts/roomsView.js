@@ -9,6 +9,7 @@ var RoomsView = {
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+    this.$select.html('');
   },
 
   render: function() {

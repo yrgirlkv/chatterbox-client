@@ -28,6 +28,10 @@ var MessagesView = {
   handleClick: function(event) {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
+    let username = $(event.target).data(username);
+    Friends.toggle(username);
+
+
   }
 
 };

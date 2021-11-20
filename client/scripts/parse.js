@@ -21,7 +21,7 @@ var Parse = {
   },
 
   readAll: function(successCB, errorCB = null) {
-    $.ajax({
+    return $.ajax({
       url: Parse.server,
       type: 'GET',
       data: { order: '-createdAt' },
