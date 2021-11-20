@@ -11,9 +11,9 @@ var App = {
   initialize: function() {
     App.username = window.location.search.substr(10);
 
-    FormView.initialize();
-    RoomsView.initialize();
-    MessagesView.initialize();
+    FormView.initialize(); ///this initializes the input message form
+    RoomsView.initialize(); //this inits the "channels"
+    MessagesView.initialize(); //this loads the messages view for the current channel
 
     // Fetch initial batch of messages
     App.startSpinner();
