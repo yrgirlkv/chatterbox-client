@@ -5,17 +5,26 @@
 var Friends = {
   // TODO: Define how you want to store your list of friends.
 
-  _data: [],
+  _data: new Set,
+
+  items: function (name) {
+    return _.chain([...Friends._data]);
+  },
+
+  isFriend: function(name) {
+    return Friends._data.has(name);
+  },
 
   // TODO: Define methods which allow you to add, toggle,
   // and check the friendship status of other users.
 
-  toggle: function (name) {
-    if (this._data.contains(name)) {
-      let index = this._data.indexOf(name);
-      this._data.splice(index, 1);
+  toggleStatus: function (name, callback = () => {}) {
+    if (Friends._data.has(name)) {
+      Friends._data.delete(name);
+      callback(false);
     } else {
-      this._data.push(name);
+      Friends._data.add(name);
+      callback(true);
     }
   }
 

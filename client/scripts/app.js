@@ -27,10 +27,13 @@ var App = {
       // examine the response from the server request:
       console.log(data);
 
-      Messages.update(data, MessagesView.render);
-      Rooms.update(data, RoomsView.render);
-      callback();
+      if (data && data.length) {
+        Messages.update(data, MessagesView.render);
+        Rooms.update(data, RoomsView.render);
 
+        callback();
+      }
+      return;
     });
   },
 
