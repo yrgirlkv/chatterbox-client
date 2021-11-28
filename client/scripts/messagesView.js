@@ -11,7 +11,7 @@ var MessagesView = {
 
   },
 
-  render: function() {
+  render: function(messages) {
     // TODO: Render _all_ the messages.
     this.$chats.html('');
     Messages

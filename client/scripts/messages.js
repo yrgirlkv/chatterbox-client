@@ -16,8 +16,8 @@ var Messages = {
   },
 
 
-  add: function(message, callback) {
-    Messages._data[message.message_id] = message;
+  add: function(message, callback = () => {}) {
+    Messages._data[message.message_id] = Messages._conform(message);
     callback(Messages.items());
   },
 
@@ -25,11 +25,11 @@ var Messages = {
     var length = Object.keys(Messages._data).length;
 
     for (const message of messages) {
-      Messages._data[message.message_id] = Messages._conform(message);
+      Messages.add(message);
     }
 
     if (Object.keys(Messages._data).length !== length) {
-      callback(Messages.items());
+      Messages._data[message.message_id] = Messages._conform(message)
     }
   },
 
