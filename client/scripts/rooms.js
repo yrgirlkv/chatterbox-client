@@ -32,7 +32,7 @@ var Rooms = {
       .each(room => Rooms._data.add(room));
 
     if (Rooms.selected === null) {
-      Rooms.selected = 'lobby';
+      Rooms.selected = Rooms._data.values().next().value;
     }
 
     if (Rooms._data.size !== length) {
