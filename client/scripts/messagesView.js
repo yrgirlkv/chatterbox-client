@@ -6,14 +6,12 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
-    // TODO: Perform any work which needs to be done
-    // when this view loads.
-
+    MessagesView.$chats.on('click', '.username', MessagesView.handleClick);
   },
 
   render: function(messages) {
-    // TODO: Render _all_ the messages.
-    this.$chats.html('');
+
+    MessagesView.$chats.html('');
     Messages
       .items()
       .filter(message => Rooms.isSelected(message.roomname))
@@ -21,18 +19,16 @@ var MessagesView = {
   },
 
   renderMessage: function(message) {
-    // TODO: Render a single message.
 
-    this.$chats.prepend(MessageView.render(message));
+    let $message = MessageView.render(message);
+    MessagesView.$chats.prepend($message);
   },
 
   handleClick: function(event) {
-    // TODO: handle a user clicking on a message
-    // (this should add the sender to the user's friend list).
+
     let username = $(event.target).data('username');
-    if (username === undefined) {
-      return;
-    }
+    if (username === undefined) { return; }
+
     Friends.toggleStatus(username, MessagesView.render);
 
   }

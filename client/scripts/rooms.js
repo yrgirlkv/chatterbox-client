@@ -10,14 +10,12 @@ var Rooms = {
   selected: 'lobby',
 
   items: function () {
-    return _.chain([...Roms._data]);
+    return _.chain([...Rooms._data]);
   },
 
   isSelected: function (roomname) {
     return roomname === Rooms.selected || !roomname && Rooms.selected === 'lobby';
   },
-
-
 
   add: function(room, callback = () => {}) {
     Rooms._data.add(room);
